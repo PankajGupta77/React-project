@@ -1,0 +1,279 @@
+.Parent-div-mainbody{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    .course-cards{
+        height: 210px;
+        width: 220px;
+        border: 1px solid hsl(0, 21%, 49%);
+        /* box-shadow: 3px 3px hsl(0, 26%, 88%); */
+        box-shadow: 3px 3px 5px hsl(0, 26%, 88%);
+        border-radius: 8px;
+    }
+    .course-images{
+        height: 120px;
+        width: 220px;
+        border-radius: 8px 8px 0 0;
+    }
+    .course-title{
+        margin: 0px;
+        margin: 0px;
+        font-size: 14px;
+        padding: 7px;
+        white-space: nowrap;     
+        overflow: hidden;        
+        text-overflow: ellipsis; 
+        width: 200px; 
+    }
+    .check-availble{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 14px;
+    }
+    .availble-check{
+        margin: 0px;
+        color: hsl(120, 100%, 49%);
+        padding-left: 8px;
+    }
+    .view-btn{
+        background: blue;
+        border-radius: 8px;
+        color: white;
+        width: 62px;
+    }
+    .view-btn-div{
+        padding-right: 6px;
+    }
+}
+.Top-course-name{
+    color: blue;
+    text-align: center;
+    background-color: aqua;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.course-details{
+    background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin: 16px;
+  transition: box-shadow 0.3s ease-in-out;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    .course-details-adding-css{
+        display: flex;
+        margin: 15px;
+        .image-css{
+            height: 147px;
+            width: 240px;
+        }
+        .course-title{
+            font-size: large;
+            font-family: monospace;
+            margin: 0px;
+            padding-left: 8px;
+            font-family: Inter, "Inter Fallback Arial", Arial;
+        }
+        .course-title-author{
+            color: rgb(25, 40, 57);
+            font-family: Inter, "Inter Fallback Arial", Arial;
+            font-size: 0.875rem;
+            font-weight: 600;
+            font-style: normal;
+            text-decoration-line: none;
+            line-height: 1.25rem;
+            letter-spacing: 0px;
+            margin: 0px;
+            padding-left: 8px;
+        }
+       
+    }
+
+}
+.button-container {
+    display: flex; 
+  
+    position: absolute;
+    bottom: 10px;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    right: -76px;
+    .processpayment{
+        display: inline-flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        position: relative;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+        outline: 0px;
+        border: 0px;
+        margin: 0px;
+        cursor: pointer;
+        user-select: none;
+        vertical-align: middle;
+        appearance: none;
+        text-decoration: none;
+        font-family: Lato, sans-serif;
+        min-width: 64px;
+        transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        color: rgb(255, 255, 255);
+        background-color: rgb(21, 102, 241);
+        width: 100%;
+        border-radius: 12px;
+        text-transform: initial;
+        max-height: 56px;
+        box-shadow: rgba(21, 102, 241, 0.2) 0px 8px 16px 4px;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 700;
+        padding: 16px 20px;
+    }
+}
+  
+.payment-confirmation-screen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    .data-confirmation{
+        height: 380px;
+        width: 483px;
+        border: 1px solid hsl(0deg 0% 85.83% / 65.2%);
+        cursor: pointer;
+        background-color: rgb(248, 250, 252);
+        border-bottom: 1px solid rgba(121, 135, 156, 0.18);
+        box-shadow: rgba(19, 38, 68, 0.08) 0px 12px 16px -4px, rgba(19, 38, 68, 0.03) 0px 4px 6px -2px;
+    }
+    .confiramtion-screen-img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 53vh;
+        flex-direction: column;
+        .image-icon-confirmation{
+            width: 218px;
+        }
+        .gotocourse{
+            display: inline-flex;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+            position: relative;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            outline: 0px;
+            border: 0px;
+            margin: 0px;
+            cursor: pointer;
+            user-select: none;
+            vertical-align: middle;
+            appearance: none;
+            text-decoration: none;
+            font-family: Lato, sans-serif;
+            min-width: 64px;
+            transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            color: rgb(255, 255, 255);
+            background-color: rgb(21, 102, 241);
+            width: 100%;
+            border-radius: 12px;
+            text-transform: initial;
+            max-height: 56px;
+            box-shadow: rgba(21, 102, 241, 0.2) 0px 8px 16px 4px;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 700;
+            padding: 16px 20px;
+        }
+    }
+}
+
+    
+    .course-card {
+        background: #ffffff;
+        border-radius: 25px;
+        width: 100%;
+        height: 300px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        margin: 10px;
+        transition: 0.25s ease-in-out;
+        &-img {
+            width: 100%;
+            height: 225px;
+            border-radius: 25px 25px 0px 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+    
+            & .main {
+                height: 120px;
+                width: 130px;
+                object-fit: cover;
+                z-index: 1;
+                transition: 0.25s ease-in-out;
+            }
+    
+            & .layered {
+                height: 120px;
+                width: 130px;
+                position: absolute;
+                filter: blur(19px);
+                transition: 0.25s ease-in-out;
+            }
+        }
+        &-content {
+            padding: 16px;
+            & h4 {
+                font-family: Ubuntu;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 16px;
+                /* identical to box height */
+    
+                display: flex;
+                align-items: center;
+                text-align: center;
+    
+                color: rgba(0, 0, 0, 0.74);
+            }
+    
+            & h6 {
+                font-family: Ubuntu;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 16px;
+                /* identical to box height */
+    
+                display: flex;
+                align-items: center;
+                text-align: center;
+    
+                color: #1c0fd7;
+            }
+        }
+    
+        &:hover {
+            transform: scale(1.05);
+            .course-card-img {
+                & .main {
+                    transform: scale(1.1);
+                }
+    
+                & .layered {
+                    filter: blur(19);
+                    transform: scale(1.5);
+                }
+            }
+        }
+    }
+    
