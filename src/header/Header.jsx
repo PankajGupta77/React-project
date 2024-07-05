@@ -1,8 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
- import './Header.css'; 
+import { Link, useNavigate } from 'react-router-dom';
+import './Header.css';
 
-const Header = () => {
+const Header = ({ email, onLogout }) => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    onLogout();
+    navigate('/login');
+  };
+
   return (
     <header className="header">
       <h1>Welcome to My Website</h1>
@@ -11,6 +18,8 @@ const Header = () => {
           <li><Link to="/">Home</Link></li>
           <li><Link to="/about">About</Link></li>
           <li><Link to="/contact">Contact</Link></li>
+          <li><Link to="/Allcourses">Start Learning</Link></li>
+          <li className='Logout'><img className="logoutimg"src="https://cdn-icons-png.flaticon.com/512/2529/2529508.png" onClick={handleLogout} /></li>
         </ul>
       </nav>
     </header>

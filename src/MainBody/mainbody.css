@@ -7,9 +7,8 @@
     .course-cards{
         height: 210px;
         width: 220px;
-        border: 1px solid hsl(0, 21%, 49%);
-        /* box-shadow: 3px 3px hsl(0, 26%, 88%); */
-        box-shadow: 3px 3px 5px hsl(0, 26%, 88%);
+        border: 1px solid hsl(0deg 7.44% 70.58%);
+        box-shadow: 3px 3px 5px hsl(0deg 14.54% 78.17%);
         border-radius: 8px;
     }
     .course-images{
@@ -35,8 +34,9 @@
     }
     .availble-check{
         margin: 0px;
-        color: hsl(120, 100%, 49%);
+        color: hsl(120, 6%, 23%);
         padding-left: 8px;
+        font-size: 0.8rem;
     }
     .view-btn{
         background: blue;
@@ -90,7 +90,12 @@
             margin: 0px;
             padding-left: 8px;
         }
-       
+       .text-alignment{
+        display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: baseline;
+       }
     }
 
 }

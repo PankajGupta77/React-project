@@ -6,14 +6,12 @@ const CourseDetail = () => {
   const { name } = useParams();
   const navigate = useNavigate();
   const [course, setCourse] = useState(null);
-  console.log(name)
+
   useEffect(() => {
     fetch(`https://courses-api-deployed-9k4x.onrender.com/api/courses/${name}`)
       .then(response => response.json())
       .then(data => {
-        const courseList = data;
-        // const foundCourse = courseList.find(course => course.title === name);
-        setCourse(courseList);
+        setCourse(data);
       })
       .catch(error => console.error('Error fetching course data:', error));
   }, [name]);
@@ -24,14 +22,33 @@ const CourseDetail = () => {
       amount: course.Price * 100,
       currency: "INR",
       name: "My company",
-      description: `Payment for ${course}`,
-      handler: function (response) {
-        navigate("/order-confirmation", { state: { course, paymentId: response.razorpay_payment_id } });
+      description: `Payment for ${course.title}`,
+      handler: async function (response) {
+        try {
+          const purchaseResponse = await fetch('https://courses-api-deployed-9k4x.onrender.com/api/purchases/buy', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({   
+              userId: localStorage.getItem('_id'),
+              courseId: name,
+              paymentId: response.razorpay_payment_id,
+              amount: course.Price,
+              status: 'completed' }),
+          });
+          if (purchaseResponse.ok) {
+            navigate("/order-confirmation", { state: { course, paymentId: response.razorpay_payment_id } });
+          } else {
+            const data = await purchaseResponse.json();
+            alert(data.message);
+          }
+        } catch (error) {
+          console.error('Error:', error);
+        }
       },
       prefill: {
-        name: "Your Name",
-        email: "pg007135@gmail.com",
-        contact: "+917737879061",
+        email: localStorage.getItem('email'),
       },
       theme: {
         color: "#3399cc",
@@ -53,7 +70,7 @@ const CourseDetail = () => {
           <div className="image-css">
             <img className="image-css" src={course.imgSrc} alt={course.title} />
           </div>
-          <div>
+          <div className="text-alignment">
             <div className="title-discription">
               <h2 className="course-title">{course.title}</h2>
             </div>

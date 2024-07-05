@@ -26,4 +26,12 @@
     color: white;
     text-decoration: none;
   }
-  
+  .Logout{
+    position: absolute; 
+    right: 0px;
+    
+  }
+  .logoutimg{
+    width: 26px;
+    background: white;
+  }
