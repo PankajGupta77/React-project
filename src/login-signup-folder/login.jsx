@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './singup.css';
-
+import { Link } from 'react-router-dom';
 const LoginForm = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -60,7 +60,7 @@ const LoginForm = ({ onLogin }) => {
       <a href="#" className="fp">Forgot password?</a>
       <div className="footer_card">
         <p>Not a member?</p>
-        <a href="/signup">Signup now</a>
+        <Link to="/signup">Signup now</Link>
       </div>
     </div>
     </div>

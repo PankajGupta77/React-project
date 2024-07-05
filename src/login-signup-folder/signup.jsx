@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './signuplogincss.css';
+import { Link } from 'react-router-dom';
 
 const SignupForm = ({ onSignup }) => {
   const [email, setEmail] = useState('');
@@ -68,7 +69,7 @@ const SignupForm = ({ onSignup }) => {
       </form>
       <div className="footer_card">
         <p>Existing user?</p>
-        <a href="/login">Login</a>
+        <Link to="/login">Login</Link>
       </div>
     </div>
     </div>
