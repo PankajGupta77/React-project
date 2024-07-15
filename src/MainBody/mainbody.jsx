@@ -35,7 +35,7 @@ const MainBody = () => {
             </div>
             <div className="check-availble">
               <div>
-                <h3 className="availble-check">{course.available}</h3>
+                <h3 className="availble-check">₹{course.Price}</h3>
               </div>
               <div className="view-btn-div">
                 <Link to={`/courselist/${encodeURIComponent(course._id)}`}>

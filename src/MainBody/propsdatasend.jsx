@@ -32,6 +32,15 @@ const PropsDataSend = () => {
     fetchPurchases();
   }, []);
 
+  const formatDate = (isoString) => {
+    const date = new Date(isoString);
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  };
+
   if (error) {
     return <div className="error-message">{error}</div>;
   }
@@ -44,27 +53,49 @@ const PropsDataSend = () => {
     <div className="">
       <div className="">
         {purchases.map(purchase => (
-        //   <div key={purchase._id} className="">
-        //     <div className="">
-        //       <div className="">
-        //         <img src={purchase.courseId.imgSrc || "https://cdn.freebiesupply.com/logos/large/2x/sketch-2-logo-png-transparent.png"} className="main" alt={purchase.courseId.title} />
-        //         <img src={purchase.courseId.imgSrc || "https://cdn.freebiesupply.com/logos/large/2x/sketch-2-logo-png-transparent.png"} className="layered" alt={purchase.courseId.title} />
-        //       </div>
-        //       <div className="">
-        //         <h4>{purchase.courseId.title}</h4>
-        //         <h6>₹ {purchase.amount}</h6>
-        //       </div>
-        //     </div>
-        //   </div>
-        <div key={purchase._id}>
-            <div className=''>
-                <img className='purchedImg' src={purchase.courseId.imgSrc}/>
-                    <div className="">
-              <h4>{purchase.courseId.title}</h4>
-              <h6>₹ {purchase.amount}</h6>
-            </div>
-            </div>
+      <div key={purchase._id} className='order-page'>
+      {/* card div */}
+      <div className="order-page-card shadow-2xl flex gap-10 flex-nowrap">
+        {/* image tag */}
+        <div className='order-image'>
+          <img className='order-page-image' src={purchase.courseId.imgSrc} alt={purchase.courseId.title} />
         </div>
+        <div className='ml-2 flex flex-col transction-details'>
+          <div className='order-details'>
+            <p className='font-bold'>Title:</p>
+            <span>{purchase.courseId.title}</span>
+          </div>
+          <div className='order-details'>
+            <p className='font-bold'>Order Id:</p>
+            <span>{purchase._id}</span>
+          </div>
+          <div className='order-details'>
+            <p className='font-bold'>Payment Id:</p>
+            <span>{purchase.paymentId}</span>
+          </div>
+          <div className='order-details'>
+            <p className='font-bold'>Amount:</p>
+            <span>{purchase.amount}</span>
+          </div>
+          <div className='order-details'>
+            <p className='font-bold'>Status:</p>
+            <span>{purchase.status}</span>
+          </div>
+          <div className='order-details'>
+            <p className='font-bold'>Purchase Date:</p>
+            <span>{formatDate(purchase.purchaseDate)}</span>
+          </div>
+          <div className='order-details'>
+  <p className='font-bold'>Expire Date:</p>
+  <span>{purchase.expireDate ? formatDate(purchase.expireDate) : 'N/A'}</span>
+</div>
+        </div>
+        <div className='Start-Learning'>
+      <button className='processpayment'>Learn</button>
+      </div>
+      </div>
+    </div>
+    
         ))}
       </div>
     </div>
