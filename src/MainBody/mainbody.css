@@ -339,7 +339,7 @@
     margin-left: 5px;
   }
   .transction-details{
-    display: contents;
+    display: contents !important;
   }
   .Start-Learning{
     position: absolute;
