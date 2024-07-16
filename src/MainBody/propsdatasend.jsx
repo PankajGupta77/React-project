@@ -4,10 +4,12 @@ import "./mainbody.css";
 const PropsDataSend = () => {
   const [purchases, setPurchases] = useState([]);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchPurchases = async () => {
       try {
+        setLoading(true)
         const userId = localStorage.getItem('_id');
         const response = await fetch('https://courses-api-deployed-9k4x.onrender.com/api/purchases/my-purchases', {
           method: 'POST',
@@ -27,6 +29,9 @@ const PropsDataSend = () => {
       } catch (error) {
         setError('Error fetching purchases');
       }
+      finally{
+        setLoading(false);
+      }
     };
 
     fetchPurchases();
@@ -45,12 +50,14 @@ const PropsDataSend = () => {
     return <div className="error-message">{error}</div>;
   }
 
-  if (purchases.length === 0) {
-    return <div className="loading-message">Loading purchases...</div>;
-  }
+  // if (purchases.length === 0) {
+  //   return <div className="loading-message">Loading purchases...</div>;
+  // }
 
   return (
     <div className="">
+      {loading && <div className="loader"></div>}
+
       <div className="">
         {purchases.map(purchase => (
       <div key={purchase._id} className='order-page'>

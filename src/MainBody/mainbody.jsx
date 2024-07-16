@@ -5,15 +5,20 @@ import "./mainbody.css";
 const MainBody = () => {
 
   const [courses, setCourses] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchCourses = async () => {
       try {
+        setLoading(true)
         const response = await fetch("https://courses-api-deployed-9k4x.onrender.com/api/courses");
         const data = await response.json();
         setCourses(data);
       } catch (error) {
         console.error("Error fetching data:", error);
+      }
+      finally{
+        setLoading(false);
       }
     };
     fetchCourses();
@@ -24,6 +29,7 @@ const MainBody = () => {
       <div className="Top-course-name">
         <h2>Explore Our Courses</h2>
       </div>
+      {loading && <div className="loader"></div>}
       <div className="Parent-div-mainbody">
         {courses.map((course, index) => (
           <div className="course-cards" key={index}>
