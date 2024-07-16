@@ -7,10 +7,13 @@ const SignupForm = ({ onSignup }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     if (password !== confirmPassword) {
       alert('Passwords do not match');
       return;
@@ -32,6 +35,8 @@ const SignupForm = ({ onSignup }) => {
       }
     } catch (error) {
       console.error('Error:', error);
+    }finally {
+      setLoading(false);
     }
   };
 
@@ -71,6 +76,7 @@ const SignupForm = ({ onSignup }) => {
         <p>Existing user?</p>
         <Link to="/login">Login</Link>
       </div>
+      {loading && <div className="loader"></div>}
     </div>
     </div>
     </>

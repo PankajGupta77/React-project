@@ -6,12 +6,16 @@ const CourseDetail = () => {
   const { name } = useParams();
   const navigate = useNavigate();
   const [course, setCourse] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true)
     fetch(`https://courses-api-deployed-9k4x.onrender.com/api/courses/${name}`)
       .then(response => response.json())
       .then(data => {
         setCourse(data);
+        setLoading(false);
+
       })
       .catch(error => console.error('Error fetching course data:', error));
   }, [name]);
@@ -66,6 +70,7 @@ const CourseDetail = () => {
   return (
     <>
       <div className="course-details">
+      {loading && <div className="loader"></div>}
         <div className="course-details-adding-css">
           <div className="image-css">
             <img className="image-css" src={course.imgSrc} alt={course.title} />
