@@ -352,3 +352,7 @@
   .order-image{
     width: 150;
   }
+  .loading-message{
+    text-align: center;
+    margin-top: 50vh;
+  }

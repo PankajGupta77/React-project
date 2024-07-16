@@ -50,9 +50,9 @@ const PropsDataSend = () => {
     return <div className="error-message">{error}</div>;
   }
 
-  // if (purchases.length === 0) {
-  //   return <div className="loading-message">Loading purchases...</div>;
-  // }
+  if (purchases.length === 0) {
+    return <div className="loading-message">Not Found</div>;
+  }
 
   return (
     <div className="">
