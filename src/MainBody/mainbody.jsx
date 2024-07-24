@@ -30,7 +30,7 @@ const MainBody = () => {
         <h2>Explore Our Courses</h2>
       </div>
       {loading && <div className="loader"></div>}
-      <div className="Parent-div-mainbody">
+      <div className="Parent-div-mainbody col-sm-12 col-md-9 col-lg-12">
         {courses.map((course, index) => (
           <div className="course-cards" key={index}>
             <div className="image-div">
