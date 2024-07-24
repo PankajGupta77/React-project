@@ -10,6 +10,8 @@ import OrderConfirmation from './MainBody/OrderConfirmation';
 import PropsDataSend from './MainBody/propsdatasend';
 import LoginForm from './login-signup-folder/login';
 import SignupForm from './login-signup-folder/signup';
+import TermsAndConditions from './header/TermsAndConditions';
+import PrivacyPolicy from './header/PrivacyPolicy';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -50,6 +52,10 @@ function App() {
         <Route path="/contact" element={isAuthenticated ? <Contact /> : <LoginForm onLogin={handleLogin} />} />
         <Route path="/order-confirmation" element={isAuthenticated ? <OrderConfirmation /> : <LoginForm onLogin={handleLogin} />} />
         <Route path="/Allcourses" element={isAuthenticated ? <PropsDataSend /> : <LoginForm onLogin={handleLogin} />} />
+        <Route path="/terms-and-conditions" element={isAuthenticated ? <TermsAndConditions /> : <LoginForm onLogin={handleLogin} />} />
+        <Route path="/Privacy-Policy" element={isAuthenticated ? <PrivacyPolicy /> : <LoginForm onLogin={handleLogin} />} />
+        {/* <Route path="/terms-and-conditions" component={TermsAndConditions} /> */}
+        {/* <Route path="/Privacy-Policy" component={PrivacyPolicy} /> */}
         <Route path="/signup" element={<SignupForm onSignup={handleLogin} />} />
         <Route path="/login" element={<LoginForm onLogin={handleLogin} />} />
       </Routes>

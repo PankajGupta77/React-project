@@ -12,7 +12,7 @@ const Header = ({ email, onLogout }) => {
 
   return (
     <header className="header">
-      <h1>Welcome to My Website</h1>
+      <h1 className='display-4'>Welcome to <span className='text-primary'>LearnXpert</span></h1>
       <nav>
         <ul>
           <li><Link to="/">Home</Link></li>

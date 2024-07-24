@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./mainbody.css";
-
+import Footerval from '../header/Footer';
 const MainBody = () => {
 
   const [courses, setCourses] = useState([]);
@@ -51,7 +51,11 @@ const MainBody = () => {
             </div>
           </div>
         ))}
+      
       </div>
+      <footer className="mt-auto">
+        <Footerval />
+      </footer>
     </>
   );
 };

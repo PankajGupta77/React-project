@@ -8,8 +8,9 @@ const PropsDataSend = () => {
 
   useEffect(() => {
     const fetchPurchases = async () => {
+      setLoading(true)
       try {
-        setLoading(true)
+    
         const userId = localStorage.getItem('_id');
         const response = await fetch('https://courses-api-deployed-9k4x.onrender.com/api/purchases/my-purchases', {
           method: 'POST',
@@ -51,6 +52,7 @@ const PropsDataSend = () => {
   }
 
   if (purchases.length === 0) {
+       {loading && <div className="loader"></div>}
     return <div className="loading-message">Not Found</div>;
   }
 
