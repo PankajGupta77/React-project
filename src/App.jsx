@@ -54,8 +54,6 @@ function App() {
         <Route path="/Allcourses" element={isAuthenticated ? <PropsDataSend /> : <LoginForm onLogin={handleLogin} />} />
         <Route path="/terms-and-conditions" element={isAuthenticated ? <TermsAndConditions /> : <LoginForm onLogin={handleLogin} />} />
         <Route path="/Privacy-Policy" element={isAuthenticated ? <PrivacyPolicy /> : <LoginForm onLogin={handleLogin} />} />
-        {/* <Route path="/terms-and-conditions" component={TermsAndConditions} /> */}
-        {/* <Route path="/Privacy-Policy" component={PrivacyPolicy} /> */}
         <Route path="/signup" element={<SignupForm onSignup={handleLogin} />} />
         <Route path="/login" element={<LoginForm onLogin={handleLogin} />} />
       </Routes>

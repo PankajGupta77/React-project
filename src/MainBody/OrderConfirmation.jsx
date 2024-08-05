@@ -6,7 +6,7 @@ const OrderConfirmation = () => {
   const { course, paymentId } = location.state;
   const navigate = useNavigate();
 function goTocourse(){
-    navigate('/Allcourses')
+   navigate('/Allcourses')
 }
   return (
     
