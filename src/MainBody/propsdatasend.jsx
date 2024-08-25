@@ -7,6 +7,15 @@ const PropsDataSend = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [showIframe, setShowIframe] = useState(false);
+  const [iframeSrc, setIframeSrc] = useState('');
+
+  const videoUrls = {
+    video1: 'https://www.blogger.com/video.g?token=AD6v5dyA13u3CEPODLi8NK1DRFBVtoI1ugWXRqajI_EThRY0x1cPK_iiRRUvJOqDfK5ngurB9gcxVNsxgyYD4JYTTZNVR2bhHJ7H_afcdCsZ47ufj8bTVxzO8HAAZiYbMe73pJa5u-Q',
+    video2: 'https://www.blogger.com/video.g?token=AD6v5dzVrozDYZKXZtfL1TOGrjANTbCBp1QU5656iV77181PDCrgXqKwzCnKVJEqS5O1trQq7s65depfNQXhuO9eB0Y6gKwWQk5rQIEtm_AsN-23VXzpWBEiLIaq5x7DD0ghETlZ0qgz',
+    video3: 'https://www.blogger.com/video.g?token=AD6v5dyPUf_YbhZJEwXR1NuzZo2PJ0h4nwfT7dY8sSeCHCqpKi_Y8aXQZ5AIO5XICY1hPA8SVqLrl3xg3VbSPU78euszO4eTv_PvqV1kXDWwNOiL8iWnCilk4SxpwoIe-7bZmNw_Bpw',
+    video4: 'https://www.blogger.com/video.g?token=AD6v5dwMBgH9brdsPJUlFQzumacWmJ3p2KhL-a544lE6Z32REnte5LFfhbMt9kEMMzrFgPe2F6wtQ8UMnVRysFAev7I2U4AzP_a6WzRsvkV7sIagFcKmp4BNQJBque9ZALiZYX2IMqEO',
+    video5: 'https://www.blogger.com/video.g?token=AD6v5dwaMZ7sevOYBV9bLtzUkBBDQmCNEF0Kq4OJ79kntrWp4bA0oZzRtRjzqz7vgLfTgBEvLVQ_sy5wo72yC3JCX_lv8Zo8LP9YRhJ6_jlFB-zFw1hPn0sdelx0fwVArZARhAxwD6I',
+  };
 
   useEffect(() => {
     const fetchPurchases = async () => {
@@ -47,12 +56,14 @@ const PropsDataSend = () => {
     });
   };
 
-  const Learn = () => {
+  const Learn = (videoKey) => {
+    setIframeSrc(videoUrls[videoKey]);
     setShowIframe(true);
   };
 
   const handleClose = () => {
     setShowIframe(false);
+    setIframeSrc('');
   };
 
   if (error) {
@@ -72,7 +83,7 @@ const PropsDataSend = () => {
     <div>
       {loading && <div className="loader"></div>}
       <div>
-        {purchases.map((purchase) => (
+        {purchases.map((purchase, index) => (
           <div key={purchase._id} className="order-page">
             <div className="order-page-card shadow-2xl flex gap-10 flex-nowrap">
               <div className="order-image">
@@ -113,7 +124,7 @@ const PropsDataSend = () => {
                 </div>
               </div>
               <div className="Start-Learning">
-                <button className="processpayment" onClick={Learn}>
+                <button className="processpayment" onClick={() => Learn(`video${index + 1}`)}>
                   Learn
                 </button>
               </div>
@@ -122,7 +133,6 @@ const PropsDataSend = () => {
         ))}
       </div>
 
-     
       {showIframe && (
         <div className="modal show d-block" tabIndex="-1" role="dialog">
           <div className="modal-dialog" role="document">
@@ -134,11 +144,16 @@ const PropsDataSend = () => {
                 </button>
               </div>
               <div className="modal-body">
-              <iframe   width="100%"
-                  height="400px" src="https://www.youtube.com/embed/HVjjoMvutj4?si=0uA20xPKqL73S-Z9"
-                   title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe
+                  width="100%"
+                  height="400px"
+                  src={iframeSrc}
+                  title="Course Video"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                ></iframe>
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" onClick={handleClose}>
@@ -148,11 +163,8 @@ const PropsDataSend = () => {
             </div>
           </div>
         </div>
-        
       )}
-    
     </div>
-    
   );
 };
 

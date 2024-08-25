@@ -11,21 +11,59 @@ const SignupForm = ({ onSignup }) => {
 
   const navigate = useNavigate();
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setLoading(true);
+  //   if (password !== confirmPassword) {
+  //     alert('Passwords do not match');
+  //     return;
+  //   }
+  //   try {
+  //     const response = await fetch('https://courses-api-deployed-9k4x.onrender.com/api/auth/signup', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({ email, password }),
+  //     });
+  //     if (response.ok) {
+  //       onSignup();
+  //       navigate('/login');
+  //     } else {
+  //       const data = await response.json();
+  //       alert(data.message);
+  //     }
+  //   } catch (error) {
+  //     console.error('Error:', error);
+  //   }finally {
+  //     setLoading(false);
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     if (password !== confirmPassword) {
       alert('Passwords do not match');
+      setLoading(false);
       return;
     }
+  
     try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000);
+  
       const response = await fetch('https://courses-api-deployed-9k4x.onrender.com/api/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email, password }),
+        signal: controller.signal,
       });
+  
+      clearTimeout(timeoutId);
+  
       if (response.ok) {
         onSignup();
         navigate('/login');
@@ -34,11 +72,17 @@ const SignupForm = ({ onSignup }) => {
         alert(data.message);
       }
     } catch (error) {
-      console.error('Error:', error);
-    }finally {
+      if (error.name === 'AbortError') {
+        alert('Request timed out. Please try again.');
+      } else {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again later.');
+      }
+    } finally {
       setLoading(false);
     }
   };
+  
 
   return (
     <>
