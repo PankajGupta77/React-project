@@ -35,7 +35,7 @@ const Contact = () => {
                     <div className="card-body">
                         <h5 className="card-title">Operating Address</h5>
                         <p className="card-text">
-                            <i className="fas fa-map-marker-alt"></i> LearnXpert Company Ltd.<br />
+                            <i className="fas fa-map-marker-alt"></i> LearnXpert.<br />
                             42a Nanak Nagar Indore,<br />
                             Indore, M.P, 452001,<br />
                             India
