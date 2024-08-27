@@ -102,10 +102,10 @@ const PropsDataSend = () => {
                   <p className="font-bold">Order Id:</p>
                   <span>{purchase._id}</span>
                 </div>
-                <div className="order-details">
+{/*                 <div className="order-details">
                   <p className="font-bold">Payment Id:</p>
                   <span>{purchase.paymentId}</span>
-                </div>
+                </div> */}
                 <div className="order-details">
                   <p className="font-bold">Amount:</p>
                   <span>{purchase.amount}</span>
