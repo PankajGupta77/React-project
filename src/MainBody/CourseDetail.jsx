@@ -88,7 +88,7 @@ const CourseDetail = () => {
               <h2 className="course-title-author">Price: ₹{course.Price}</h2>
             </div>
             <div>
-              <h2 className="course-title-author">This is a dummy response</h2>
+              <h2 className="course-title-author"></h2>
             </div>
           </div>
         </div>
